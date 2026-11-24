@@ -20,15 +20,16 @@ struct AmrRailApp: App {
     // Links our AppDelegate to the SwiftUI lifecycle
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    // Creates single instances of our shared ViewModels at the root of the app
-    // @StateObject ensures these instances survive view redrawing
+    // Shared ObservableObjects managing the core app domains
+    // @StateObject ensures these instances survive across view rebuilds
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var trainViewModel = TrainViewModel()
     @StateObject private var diaryViewModel = DiaryViewModel()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // RootView decides between Login/SignUp and MainTabView
+            RootView()
                 // Injects the ViewModels into the environment hierarchy
                 // Any child view can now read them using @EnvironmentObject
                 .environmentObject(authViewModel)
