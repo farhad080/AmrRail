@@ -21,7 +21,7 @@ class FavouritesViewModel: ObservableObject {
         stopListening()
     }
 
-    // MARK: - Snapshot Listener Lifecycle
+    // MARK: - 1. Snapshot Listener Lifecycle
     /// Starts real-time listening to the user's favourites subcollection in Firestore
     func startListening() {
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -61,13 +61,19 @@ class FavouritesViewModel: ObservableObject {
         listenerRegistration = nil
     }
 
-    // MARK: - Query Helper
+    /// Resets the favourites state and cancels the snapshot listener (used during logout)
+    func reset() {
+        stopListening()
+        favourites = []
+    }
+
+    // MARK: - 2. Query Helper
     /// Checks whether a given train is currently in the favourites list
     func isFavourite(train: Train) -> Bool {
         return favourites.contains { $0.trainId == train.id }
     }
 
-    // MARK: - Toggle Favourite
+    // MARK: - 3. Toggle Favourite
     /// Adds or deletes a train in users/{uid}/favourites/{trainId}
     func toggleFavourite(train: Train) {
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -109,7 +115,7 @@ class FavouritesViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Swipe to Delete
+    // MARK: - 4. Swipe to Delete
     /// Removes selected favourites via List swipe action
     func deleteFavourites(at offsets: IndexSet) {
         guard let uid = Auth.auth().currentUser?.uid else { return }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 // MARK: - DiaryView
-// Displays list of recorded train journeys with swipe-to-delete, tap-to-edit, and empty state
+// Displays travel statistics and past journeys with swipe-to-delete, tap-to-edit, and empty state
 struct DiaryView: View {
     @EnvironmentObject var diaryViewModel: DiaryViewModel
     @EnvironmentObject var trainViewModel: TrainViewModel
@@ -12,18 +12,39 @@ struct DiaryView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
-                if diaryViewModel.isLoading && diaryViewModel.entries.isEmpty {
-                    ProgressView("Loading journey diary...")
-                } else if diaryViewModel.entries.isEmpty {
-                    // Empty State View when user has logged 0 journeys
-                    ContentUnavailableView(
-                        "No Journeys Yet",
-                        systemImage: "book.closed.fill",
-                        description: Text("Tap '+' to record your first train trip in your diary!")
-                    )
-                } else {
-                    List {
+            List {
+                // MARK: - 1. Travel Stats Section at the Top
+                Section {
+                    StatsView()
+                }
+                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                .listRowBackground(Color.clear)
+
+                // MARK: - 2. Journey Entries Section
+                Section("Trip History") {
+                    if diaryViewModel.isLoading && diaryViewModel.entries.isEmpty {
+                        HStack {
+                            Spacer()
+                            ProgressView("Loading trips...")
+                            Spacer()
+                        }
+                        .padding()
+                    } else if diaryViewModel.entries.isEmpty {
+                        // Empty State within the list
+                        VStack(spacing: 12) {
+                            Image(systemName: "book.closed.fill")
+                                .font(.system(size: 40))
+                                .foregroundStyle(.secondary)
+                            Text("No Journeys Recorded Yet")
+                                .font(.headline)
+                            Text("Tap the '+' button above to record your first train trip.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 24)
+                    } else {
                         ForEach(diaryViewModel.entries) { entry in
                             Button {
                                 // Tap-to-edit: sets selected entry and opens modal sheet
@@ -36,9 +57,9 @@ struct DiaryView: View {
                         }
                         .onDelete(perform: diaryViewModel.deleteJourneys)
                     }
-                    .listStyle(.insetGrouped)
                 }
             }
+            .listStyle(.insetGrouped)
             .navigationTitle("Journey Diary")
             .toolbar {
                 // "+" Toolbar button to log a new trip

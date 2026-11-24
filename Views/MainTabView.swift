@@ -1,7 +1,7 @@
 import SwiftUI
 
 // MARK: - MainTabView
-// Main application dashboard displayed once a user is authenticated
+// Main application dashboard with 4 tabs, each using its own independent NavigationStack
 struct MainTabView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var trainViewModel: TrainViewModel
@@ -10,62 +10,29 @@ struct MainTabView: View {
 
     var body: some View {
         TabView {
-            // Tab 1: Train Schedules Browser
+            // Tab 1: Trains (Train schedule browser with search & route filters)
             TrainListView()
                 .tabItem {
-                    Label("Schedules", systemImage: "tram.fill")
+                    Label("Trains", systemImage: "tram.fill")
                 }
 
-            // Tab 2: Favourites List
+            // Tab 2: Favourites (Bookmarked trains with quick schedule access)
             FavouritesView()
                 .tabItem {
                     Label("Favourites", systemImage: "heart.fill")
                 }
 
-            // Tab 3: Journey Diary (CRUD enabled)
+            // Tab 3: Diary (Personal journey log with travel statistics)
             DiaryView()
                 .tabItem {
                     Label("Diary", systemImage: "book.fill")
                 }
 
-            // Tab 4: User Profile & Logout
-            NavigationStack {
-                List {
-                    Section("Account Details") {
-                        HStack {
-                            Image(systemName: "person.circle.fill")
-                                .font(.title)
-                                .foregroundStyle(.green)
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(authViewModel.user?.displayName ?? "AmrRail Passenger")
-                                    .font(.headline)
-                                Text(authViewModel.user?.email ?? "No Email")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        .padding(.vertical, 4)
-                    }
-
-                    Section {
-                        Button(role: .destructive) {
-                            authViewModel.logOut() // Triggers Firebase signOut
-                        } label: {
-                            HStack {
-                                Spacer()
-                                Image(systemName: "rectangle.portrait.and.arrow.right")
-                                Text("Log Out")
-                                Spacer()
-                            }
-                            .fontWeight(.semibold)
-                        }
-                    }
+            // Tab 4: Profile (User account details, stats summary, and log out)
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.fill")
                 }
-                .navigationTitle("Profile")
-            }
-            .tabItem {
-                Label("Profile", systemImage: "person.fill")
-            }
         }
         .tint(.green)
     }

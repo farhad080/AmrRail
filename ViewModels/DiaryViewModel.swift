@@ -21,7 +21,7 @@ class DiaryViewModel: ObservableObject {
         stopListening()
     }
 
-    // MARK: - 1. Snapshot Listener Lifecycle
+    // MARK: - 1. Snapshot Listener Lifecycle (Read - Realtime)
     /// Attaches a real-time listener to users/{uid}/journeys ordered by date descending
     func startListening() {
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -59,6 +59,12 @@ class DiaryViewModel: ObservableObject {
     func stopListening() {
         listenerRegistration?.remove()
         listenerRegistration = nil
+    }
+
+    /// Resets the diary state and cancels the snapshot listener (used during logout)
+    func reset() {
+        stopListening()
+        entries = []
     }
 
     // MARK: - 2. Add Journey (Create)
@@ -143,5 +149,27 @@ class DiaryViewModel: ObservableObject {
                     .delete()
             }
         }
+    }
+
+    // MARK: - 5. Travel Statistics
+    /// Total count of recorded train journeys
+    var totalJourneys: Int {
+        entries.count
+    }
+
+    /// The train used most frequently with its trip count, or nil if no trips have been logged
+    var mostUsedTrain: (name: String, count: Int)? {
+        guard !entries.isEmpty else { return nil }
+
+        // Group trips by trainName and count their occurrences
+        let frequencyMap = Dictionary(grouping: entries, by: { $0.trainName })
+            .mapValues { $0.count }
+
+        // Find the train with the maximum count
+        guard let topTrain = frequencyMap.max(by: { $0.value < $1.value }) else {
+            return nil
+        }
+
+        return (name: topTrain.key, count: topTrain.value)
     }
 }
