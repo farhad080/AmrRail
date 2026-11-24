@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function: verifies user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper function: verifies user owns the document path
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Rules for user-specific data under /users/{userId}
+    match /users/{userId} {
+      // User can only read or write their own user document
+      allow read, write: if isOwner(userId);
+
+      // Favourites subcollection: /users/{userId}/favourites/{favouriteId}
+      match /favourites/{favouriteId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      // Journey Diary subcollection: /users/{userId}/diary/{diaryId}
+      match /diary/{diaryId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+  }
+}

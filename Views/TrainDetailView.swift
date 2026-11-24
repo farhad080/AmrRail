@@ -5,9 +5,8 @@ import SwiftUI
 struct TrainDetailView: View {
     let train: Train
 
-    // Favourite toggle hook (stored locally for now with closure callback option)
-    @State private var isFavourite: Bool = false
-    var onToggleFavourite: ((Bool) -> Void)? = nil
+    // Access shared FavouritesViewModel from the environment
+    @EnvironmentObject var favouritesViewModel: FavouritesViewModel
 
     var body: some View {
         ScrollView {
@@ -24,16 +23,15 @@ struct TrainDetailView: View {
                         }
                         Spacer()
 
-                        // Favourite Heart Button UI Hook
+                        // Favourite Heart Button connected to Firestore
                         Button {
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-                                isFavourite.toggle()
-                                onToggleFavourite?(isFavourite)
+                                favouritesViewModel.toggleFavourite(train: train)
                             }
                         } label: {
-                            Image(systemName: isFavourite ? "heart.fill" : "heart")
+                            Image(systemName: favouritesViewModel.isFavourite(train: train) ? "heart.fill" : "heart")
                                 .font(.title2)
-                                .foregroundStyle(isFavourite ? .red : .gray)
+                                .foregroundStyle(favouritesViewModel.isFavourite(train: train) ? .red : .gray)
                                 .padding(10)
                                 .background(Color(.systemGray6))
                                 .clipShape(Circle())
@@ -189,5 +187,6 @@ struct StopTimelineRow: View {
                 ]
             )
         )
+        .environmentObject(FavouritesViewModel())
     }
 }

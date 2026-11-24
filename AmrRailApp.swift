@@ -24,6 +24,7 @@ struct AmrRailApp: App {
     // @StateObject ensures these instances survive across view rebuilds
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var trainViewModel = TrainViewModel()
+    @StateObject private var favouritesViewModel = FavouritesViewModel()
     @StateObject private var diaryViewModel = DiaryViewModel()
 
     var body: some Scene {
@@ -34,6 +35,7 @@ struct AmrRailApp: App {
                 // Any child view can now read them using @EnvironmentObject
                 .environmentObject(authViewModel)
                 .environmentObject(trainViewModel)
+                .environmentObject(favouritesViewModel)
                 .environmentObject(diaryViewModel)
         }
     }

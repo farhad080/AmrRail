@@ -3,8 +3,9 @@ import SwiftUI
 // MARK: - TrainListView
 // Displays searchable, filterable Bangladesh Railway train schedules
 struct TrainListView: View {
-    // Reads shared TrainViewModel from the environment
+    // Reads shared ViewModels from the environment
     @EnvironmentObject var trainViewModel: TrainViewModel
+    @EnvironmentObject var favouritesViewModel: FavouritesViewModel
 
     var body: some View {
         NavigationStack {
@@ -77,23 +78,32 @@ struct TrainListView: View {
             // Ensures data is loaded when screen appears
             .onAppear {
                 trainViewModel.loadTrainSchedules()
+                favouritesViewModel.startListening()
             }
         }
     }
 }
 
 // MARK: - TrainRowView
-// Custom card row displaying train summary info
+// Custom card row displaying train summary info and favourite heart indicator
 struct TrainRowView: View {
     let train: Train
+    @EnvironmentObject var favouritesViewModel: FavouritesViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            // Train Name & Train Number Badge
+            // Train Name, Heart Icon, and Train Number Badge
             HStack {
                 Text(train.name)
                     .font(.headline)
                     .foregroundStyle(.primary)
+
+                // Shows red filled heart if this train is marked as favourite
+                if favouritesViewModel.isFavourite(train: train) {
+                    Image(systemName: "heart.fill")
+                        .font(.caption)
+                        .foregroundStyle(.red)
+                }
 
                 Spacer()
 
@@ -139,4 +149,5 @@ struct TrainRowView: View {
 #Preview {
     TrainListView()
         .environmentObject(TrainViewModel())
+        .environmentObject(FavouritesViewModel())
 }

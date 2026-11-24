@@ -5,6 +5,7 @@ import SwiftUI
 struct MainTabView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var trainViewModel: TrainViewModel
+    @EnvironmentObject var favouritesViewModel: FavouritesViewModel
     @EnvironmentObject var diaryViewModel: DiaryViewModel
 
     var body: some View {
@@ -15,7 +16,13 @@ struct MainTabView: View {
                     Label("Schedules", systemImage: "tram.fill")
                 }
 
-            // Tab 2: Journey Diary
+            // Tab 2: Favourites List
+            FavouritesView()
+                .tabItem {
+                    Label("Favourites", systemImage: "heart.fill")
+                }
+
+            // Tab 3: Journey Diary
             NavigationStack {
                 VStack(spacing: 16) {
                     Image(systemName: "book.pages.fill")
@@ -33,7 +40,7 @@ struct MainTabView: View {
                 Label("Diary", systemImage: "book.fill")
             }
 
-            // Tab 3: User Profile & Logout
+            // Tab 4: User Profile & Logout
             NavigationStack {
                 List {
                     Section("Account Details") {
@@ -80,5 +87,6 @@ struct MainTabView: View {
     MainTabView()
         .environmentObject(AuthViewModel())
         .environmentObject(TrainViewModel())
+        .environmentObject(FavouritesViewModel())
         .environmentObject(DiaryViewModel())
 }
