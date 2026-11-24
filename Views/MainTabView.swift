@@ -22,23 +22,11 @@ struct MainTabView: View {
                     Label("Favourites", systemImage: "heart.fill")
                 }
 
-            // Tab 3: Journey Diary
-            NavigationStack {
-                VStack(spacing: 16) {
-                    Image(systemName: "book.pages.fill")
-                        .font(.system(size: 50))
-                        .foregroundStyle(.green)
-                    Text("Journey Diary")
-                        .font(.title2.bold())
-                    Text("Your saved trips and notes will appear here.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+            // Tab 3: Journey Diary (CRUD enabled)
+            DiaryView()
+                .tabItem {
+                    Label("Diary", systemImage: "book.fill")
                 }
-                .navigationTitle("My Diary")
-            }
-            .tabItem {
-                Label("Diary", systemImage: "book.fill")
-            }
 
             // Tab 4: User Profile & Logout
             NavigationStack {

@@ -23,7 +23,12 @@ service cloud.firestore {
         allow read, write: if isOwner(userId);
       }
 
-      // Journey Diary subcollection: /users/{userId}/diary/{diaryId}
+      // Journey Diary subcollection: /users/{userId}/journeys/{journeyId}
+      match /journeys/{journeyId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      // Legacy/alternative alias: /users/{userId}/diary/{diaryId}
       match /diary/{diaryId} {
         allow read, write: if isOwner(userId);
       }
