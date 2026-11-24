@@ -9,13 +9,11 @@ struct MainTabView: View {
 
     var body: some View {
         TabView {
-            // Tab 1: Schedules (Train list)
-            NavigationStack {
-                ContentView()
-            }
-            .tabItem {
-                Label("Schedules", systemImage: "tram.fill")
-            }
+            // Tab 1: Train Schedules Browser
+            TrainListView()
+                .tabItem {
+                    Label("Schedules", systemImage: "tram.fill")
+                }
 
             // Tab 2: Journey Diary
             NavigationStack {
@@ -56,7 +54,7 @@ struct MainTabView: View {
 
                     Section {
                         Button(role: .destructive) {
-                            authViewModel.logOut()
+                            authViewModel.logOut() // Triggers Firebase signOut
                         } label: {
                             HStack {
                                 Spacer()
