@@ -1,0 +1,440 @@
+[
+  {
+    "id": "701",
+    "name": "Subarna Express",
+    "from": "Chattogram",
+    "to": "Dhaka",
+    "offDay": "Monday",
+    "stops": [
+      {
+        "station": "Chattogram",
+        "arrival": "Starts",
+        "departure": "07:00 AM"
+      },
+      {
+        "station": "Feni",
+        "arrival": "08:15 AM",
+        "departure": "08:18 AM"
+      },
+      {
+        "station": "Cumilla",
+        "arrival": "09:05 AM",
+        "departure": "09:08 AM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "11:45 AM",
+        "departure": "11:50 AM"
+      },
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "12:15 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "787",
+    "name": "Sonar Bangla Express",
+    "from": "Dhaka",
+    "to": "Chattogram",
+    "offDay": "Wednesday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "07:00 AM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "07:25 AM",
+        "departure": "07:30 AM"
+      },
+      {
+        "station": "Feni",
+        "arrival": "10:35 AM",
+        "departure": "10:38 AM"
+      },
+      {
+        "station": "Chattogram",
+        "arrival": "12:00 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "789",
+    "name": "Mohanganj Express",
+    "from": "Dhaka",
+    "to": "Mohanganj",
+    "offDay": "Monday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "01:15 PM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "01:40 PM",
+        "departure": "01:45 PM"
+      },
+      {
+        "station": "Gafargaon",
+        "arrival": "03:10 PM",
+        "departure": "03:13 PM"
+      },
+      {
+        "station": "Mymensingh",
+        "arrival": "04:00 PM",
+        "departure": "04:15 PM"
+      },
+      {
+        "station": "Netrokona",
+        "arrival": "05:10 PM",
+        "departure": "05:13 PM"
+      },
+      {
+        "station": "Mohanganj",
+        "arrival": "06:00 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "725",
+    "name": "Sundarban Express",
+    "from": "Dhaka",
+    "to": "Khulna",
+    "offDay": "Tuesday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "08:15 AM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "08:40 AM",
+        "departure": "08:45 AM"
+      },
+      {
+        "station": "Ishwardi",
+        "arrival": "12:55 PM",
+        "departure": "01:05 PM"
+      },
+      {
+        "station": "Chuadanga",
+        "arrival": "02:15 PM",
+        "departure": "02:18 PM"
+      },
+      {
+        "station": "Jashore",
+        "arrival": "03:30 PM",
+        "departure": "03:35 PM"
+      },
+      {
+        "station": "Khulna",
+        "arrival": "04:30 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "763",
+    "name": "Chitra Express",
+    "from": "Khulna",
+    "to": "Dhaka",
+    "offDay": "Monday",
+    "stops": [
+      {
+        "station": "Khulna",
+        "arrival": "Starts",
+        "departure": "09:00 AM"
+      },
+      {
+        "station": "Jashore",
+        "arrival": "09:55 AM",
+        "departure": "10:00 AM"
+      },
+      {
+        "station": "Poradaha",
+        "arrival": "11:40 AM",
+        "departure": "11:45 AM"
+      },
+      {
+        "station": "Ishwardi",
+        "arrival": "12:25 PM",
+        "departure": "12:35 PM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "04:50 PM",
+        "departure": "04:55 PM"
+      },
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "05:30 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "709",
+    "name": "Parabat Express",
+    "from": "Dhaka",
+    "to": "Sylhet",
+    "offDay": "Tuesday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "06:20 AM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "06:45 AM",
+        "departure": "06:50 AM"
+      },
+      {
+        "station": "Bhairab Bazar",
+        "arrival": "08:15 AM",
+        "departure": "08:18 AM"
+      },
+      {
+        "station": "Brahmanbaria",
+        "arrival": "08:45 AM",
+        "departure": "08:48 AM"
+      },
+      {
+        "station": "Sreemangal",
+        "arrival": "10:55 AM",
+        "departure": "11:00 AM"
+      },
+      {
+        "station": "Sylhet",
+        "arrival": "01:00 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "773",
+    "name": "Kalni Express",
+    "from": "Sylhet",
+    "to": "Dhaka",
+    "offDay": "Friday",
+    "stops": [
+      {
+        "station": "Sylhet",
+        "arrival": "Starts",
+        "departure": "06:15 AM"
+      },
+      {
+        "station": "Kulaura",
+        "arrival": "07:15 AM",
+        "departure": "07:20 AM"
+      },
+      {
+        "station": "Shamshernagar",
+        "arrival": "07:45 AM",
+        "departure": "07:48 AM"
+      },
+      {
+        "station": "Sreemangal",
+        "arrival": "08:10 AM",
+        "departure": "08:15 AM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "12:15 PM",
+        "departure": "12:20 PM"
+      },
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "01:00 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "739",
+    "name": "Upaban Express",
+    "from": "Dhaka",
+    "to": "Sylhet",
+    "offDay": "Wednesday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "08:30 PM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "08:55 PM",
+        "departure": "09:00 PM"
+      },
+      {
+        "station": "Brahmanbaria",
+        "arrival": "10:50 PM",
+        "departure": "10:55 PM"
+      },
+      {
+        "station": "Kulaura",
+        "arrival": "02:30 AM",
+        "departure": "02:35 AM"
+      },
+      {
+        "station": "Sylhet",
+        "arrival": "04:30 AM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "753",
+    "name": "Silk City Express",
+    "from": "Dhaka",
+    "to": "Rajshahi",
+    "offDay": "Sunday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "02:45 PM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "03:10 PM",
+        "departure": "03:15 PM"
+      },
+      {
+        "station": "Mirzapur",
+        "arrival": "04:20 PM",
+        "departure": "04:22 PM"
+      },
+      {
+        "station": "Ishwardi Bypass",
+        "arrival": "06:45 PM",
+        "departure": "06:50 PM"
+      },
+      {
+        "station": "Rajshahi",
+        "arrival": "08:20 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "759",
+    "name": "Padma Express",
+    "from": "Rajshahi",
+    "to": "Dhaka",
+    "offDay": "Tuesday",
+    "stops": [
+      {
+        "station": "Rajshahi",
+        "arrival": "Starts",
+        "departure": "04:00 PM"
+      },
+      {
+        "station": "Abdulpur",
+        "arrival": "04:45 PM",
+        "departure": "04:48 PM"
+      },
+      {
+        "station": "Ishwardi Bypass",
+        "arrival": "05:10 PM",
+        "departure": "05:15 PM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "08:45 PM",
+        "departure": "08:50 PM"
+      },
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "09:30 PM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "797",
+    "name": "Kurigram Express",
+    "from": "Dhaka",
+    "to": "Kurigram",
+    "offDay": "Wednesday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "08:45 PM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "09:10 PM",
+        "departure": "09:15 PM"
+      },
+      {
+        "station": "Natore",
+        "arrival": "01:25 AM",
+        "departure": "01:28 AM"
+      },
+      {
+        "station": "Bogura",
+        "arrival": "03:00 AM",
+        "departure": "03:05 AM"
+      },
+      {
+        "station": "Rangpur",
+        "arrival": "05:15 AM",
+        "departure": "05:25 AM"
+      },
+      {
+        "station": "Kurigram",
+        "arrival": "06:20 AM",
+        "departure": "Ends"
+      }
+    ]
+  },
+  {
+    "id": "771",
+    "name": "Rangpur Express",
+    "from": "Dhaka",
+    "to": "Rangpur",
+    "offDay": "Monday",
+    "stops": [
+      {
+        "station": "Dhaka (Kamalapur)",
+        "arrival": "Starts",
+        "departure": "09:10 AM"
+      },
+      {
+        "station": "Dhaka Airport",
+        "arrival": "09:35 AM",
+        "departure": "09:40 AM"
+      },
+      {
+        "station": "Chatmohar",
+        "arrival": "01:10 PM",
+        "departure": "01:13 PM"
+      },
+      {
+        "station": "Santahar",
+        "arrival": "03:00 PM",
+        "departure": "03:08 PM"
+      },
+      {
+        "station": "Gaibandha",
+        "arrival": "04:50 PM",
+        "departure": "04:55 PM"
+      },
+      {
+        "station": "Rangpur",
+        "arrival": "06:30 PM",
+        "departure": "Ends"
+      }
+    ]
+  }
+]
